@@ -1,0 +1,330 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  font-family: 'Nunito', sans-serif;
+}
+
+.logo {
+  font-family: 'Lilita One', cursive;
+  color: #FCA311;
+  text-shadow: -2px 2px #000;
+  font-size: 3rem;
+  padding: 0;
+}
+
+.App {
+  height: 100vh;
+  background: #14213D;
+}
+
+.home-page {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+.home-page .landing-left-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home-page .landing-left-section .text {
+  color: #E5E5E5;
+}
+
+.home-page .landing-left-section .text h1, .home-page .landing-left-section .text p {
+  letter-spacing: 3px;
+}
+
+.home-page .landing-left-section .text h1, .home-page .landing-left-section .text .logo {
+  font-size: 3rem;
+}
+
+.home-page .landing-left-section .text p {
+  font-size: 1.2rem;
+}
+
+.home-page .landing-left-section .text span {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  z-index: 1;
+}
+
+.home-page .landing-left-section .action-buttons {
+  margin-top: 1rem;
+}
+
+.home-page .landing-left-section .action-buttons button {
+  height: 4em;
+  width: 10em;
+}
+
+.home-page .landing-left-section .action-buttons button:last-child {
+  margin-left: 1rem;
+}
+
+nav {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  -ms-grid-columns: 10% 1fr 10%;
+      grid-template-columns: 10% 1fr 10%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .4rem 1rem;
+  z-index: 100;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+.nav-links {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: #fdb643;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transform: translateX(-100%) scale(0.5);
+          transform: translateX(-100%) scale(0.5);
+  -webkit-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.nav-links li {
+  font-size: 2rem;
+  color: #E5E5E5;
+  font-family: "Nunito",sans-serif;
+  margin-top: 1rem;
+  opacity: .8;
+}
+
+.nav-links li:hover {
+  font-weight: 700;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.nav-links li.active {
+  font-family: "Roboto",sans-serif;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.nav-links.active {
+  -webkit-transform: translateX(0) scale(1);
+          transform: translateX(0) scale(1);
+  opacity: 1;
+}
+
+.nav-buttons {
+  justify-self: flex-end;
+}
+
+.nav-buttons button {
+  margin-right: .5rem;
+}
+
+:root {
+  --width: 40px;
+}
+
+.hamburger-menu-button {
+  position: relative;
+  width: var(--width);
+  height: var(--width);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.hamburger-menu,
+.hamburger-menu::after {
+  height: calc(0.125 * var(--width));
+  border-radius: calc(0.15 * var(--width));
+  background-color: #FCA311;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.hamburger-menu {
+  width: calc(0.75 * var(--width));
+  -webkit-transform: translateY(calc(-0.125 * var(--width)));
+          transform: translateY(calc(-0.125 * var(--width)));
+}
+
+.hamburger-menu::after {
+  position: absolute;
+  width: calc(0.375 * var(--width));
+  -webkit-transform: translateY(calc(0.25 * var(--width)));
+          transform: translateY(calc(0.25 * var(--width)));
+  content: '';
+}
+
+.open {
+  -webkit-transform: translateY(0px) rotate(45deg);
+          transform: translateY(0px) rotate(45deg);
+  background-color: #E5E5E5;
+}
+
+.open::after {
+  width: calc(0.75 * var(--width));
+  -webkit-transform: translateY(0px) rotate(-90deg);
+          transform: translateY(0px) rotate(-90deg);
+  background-color: #E5E5E5;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+.btn {
+  height: 40px;
+  width: 84px;
+  color: #fff;
+  font-family: "Roboto",sans-serif;
+  border-radius: 12px;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
+  transition: -webkit-transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
+  transition: transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
+  transition: transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91), -webkit-transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
+}
+
+.btn.primary {
+  background: #FCA311;
+}
+
+.btn.outlined-primary {
+  background-color: transparent;
+  border: 3px solid #FCA311;
+}
+
+@media all and (min-width: 500px) {
+  nav {
+    -ms-grid-columns: 10% 1fr 20%;
+        grid-template-columns: 10% 1fr 20%;
+    padding: .2rem 1rem;
+  }
+  .nav-links {
+    width: 80%;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    position: relative;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-transform: none;
+            transform: none;
+    background-color: transparent;
+  }
+  .nav-links li {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  .nav-link {
+    font: 1rem;
+  }
+  .home-page {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+  }
+  .home-page .landing-right-section,
+  .home-page .landing-left-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .home-page .landing-left-section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .home-page .landing-left-section .action-buttons {
+    margin-top: 1rem;
+  }
+  .home-page .landing-left-section .action-buttons button {
+    display: inline;
+  }
+  .home-page .landing-left-section .action-buttons button:last-child {
+    margin-left: 1rem;
+  }
+  .home-page .landing-right-section .logo {
+    font-size: 25rem;
+  }
+}
+/*# sourceMappingURL=App.css.map */

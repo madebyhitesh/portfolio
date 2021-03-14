@@ -1,0 +1,107 @@
+nav{
+  position: relative;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 10% 1fr 10%;
+    justify-content: space-between;
+    align-items: center;
+    padding: .4rem 1rem;
+    z-index: 100;
+}
+
+input[type=checkbox]{
+    display: none;
+}
+.nav-links{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: lighten($primary-color,10%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(-100%) scale(.5);
+    transition:all .3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    li{
+        font-size: 2rem;
+        color:$light-color;
+        font-family: "Nunito",sans-serif;
+        margin-top:1rem;
+        opacity: .8;
+        &:hover{
+          font-weight: 700;
+        opacity: 1;
+        cursor: pointer;
+        }
+    }
+    li.active{
+      font-family: "Roboto",sans-serif;
+        font-weight: 700;
+        opacity: 1;
+    }
+
+}
+
+.nav-links.active{
+  transform: translateX(0) scale(1);
+  opacity: 1;
+}
+
+.nav-buttons{
+    justify-self: flex-end;
+    button{
+      margin-right: .5rem;
+    }
+}
+
+:root {
+  --width: 40px;
+}
+
+
+.hamburger-menu-button {
+  position: relative;
+  width: var(--width);
+  height: var(--width);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.hamburger-menu,
+.hamburger-menu::after {
+  height: calc(0.125 * var(--width));
+  border-radius: calc(0.15 * var(--width));;
+  background-color: $primary-color;
+  transition: all 0.25s ease-in-out;
+}
+
+.hamburger-menu {
+  width: calc(0.75 * var(--width));
+  transform: translateY(calc(-0.125 * var(--width)));
+}
+
+.hamburger-menu::after {
+  position: absolute;
+  width: calc(0.375 * var(--width));
+  transform: translateY(calc(0.25 * var(--width)));
+  content: '';
+}
+
+.open {
+  transform: translateY(0px) rotate(45deg);
+  background-color: $light-color;
+}
+
+.open::after {
+  width: calc(0.75 * var(--width));
+  transform: translateY(0px) rotate(-90deg);
+  background-color: $light-color;
+
+}
+

@@ -1,0 +1,31 @@
+li{
+    list-style: none;
+}
+
+button{
+    border: none;
+    outline: none;
+}
+
+.btn{
+    height: 40px;
+    width: 84px;
+    color:$white;
+    font-family: "Roboto",sans-serif;
+    border-radius: 12px;
+    letter-spacing: 1px;
+    &:hover{
+        cursor: pointer;
+        transform: scale(.9);
+        transition: transform .3s cubic-bezier(0.38,-0.12, 0.24, 1.91);
+    }
+}
+
+.btn.primary{
+    background:$primary-color;
+}
+
+.btn.outlined-primary{
+    background-color: transparent;
+    border:3px solid $primary-color;
+}

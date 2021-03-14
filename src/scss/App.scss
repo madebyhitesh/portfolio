@@ -1,0 +1,81 @@
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+// variables import
+@import "./variable";
+
+h1,h2,h3,h4,h5{
+    font-family: 'Roboto', sans-serif;
+}
+
+p{
+    font-family: 'Nunito', sans-serif;
+}
+
+.logo{
+    font-family: 'Lilita One', cursive;
+    color:$primary-color;
+    text-shadow: -2px 2px $black;
+    font-size: 3rem;
+    padding: 0;
+}
+
+.App{
+    height: 100vh;
+    background:$dark-color;
+}
+
+.home-page{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 1rem;
+    padding: 0 1rem;
+
+    .landing-left-section{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        .text{
+
+            color:$light-color;
+            h1,p{
+
+                letter-spacing: 3px;
+            }
+            h1,.logo{
+                font-size:3rem;
+            }
+            p{
+                font-size: 1.2rem;
+            }
+
+            span{
+                position: relative;
+                display: inline-block;
+                cursor: default;
+               z-index: 1;
+            }
+        }
+
+        .action-buttons{
+            
+            margin-top:1rem;
+            button{
+                height: 4em;
+                width: 10em;
+            }
+
+            button:last-child{
+                margin-left:1rem;
+            }
+        }
+    }
+}
+
+//imports
+@import "./nav";
+@import "./utilities";
+@import "./responsive";

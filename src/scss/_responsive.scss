@@ -1,0 +1,59 @@
+@media all and (min-width:500px){
+    nav{
+        grid-template-columns: 10% 1fr 20%;
+        padding: .2rem 1rem;
+    }
+    .nav-links{
+        width: 80%;
+        justify-self: center;
+        justify-content: space-around;
+        position: relative;
+        flex-direction: row;
+        transform: none;
+        background-color: transparent;
+        // align-items: unset;
+        li{
+            font-size: 1.2rem ;
+            margin: 0;
+        }
+        
+    }
+
+    .nav-link{
+        font: 1rem;
+    }
+
+    // -----------------------------home page ----------------------
+
+    .home-page{
+        grid-template-columns: 1fr 1fr;
+        min-height: 500px;
+        .landing-right-section,
+        .landing-left-section{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+        .landing-left-section{
+            flex-direction: column;
+            align-items: flex-start;
+            .action-buttons{
+                margin-top:1rem;
+                button{
+                    display: inline;
+                }
+                button:last-child{
+                    margin-left:1rem;
+                }
+            }
+        }
+        .landing-right-section{
+            .logo{
+                font-size: 25rem;
+            }
+        }
+    }
+}
