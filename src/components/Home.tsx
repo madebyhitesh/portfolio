@@ -55,9 +55,9 @@ const Home = () => {
                                         key={idx}>{char}</motion.span>
                                 else
                                     return <motion.span
-                                        initial={{ y: -230, x: -100, scaleY: .8 }}
-                                        animate={{ y: [-230, 5, -2, 3, 0], x: [-100, 5, -2, 3, 0], scaleY: 1 }}
-                                        transition={{ type: "spring", duration: 1 }}
+                                        initial={{ y: -230, x: -100, scaleY: .8, opacity: 0 }}
+                                        animate={{ y: [-230, 5, -2, 3, 0], x: [-100, 5, -2, 3, 0], scaleY: [1, .5, 1.2, .8, 1], opacity: 1 }}
+                                        transition={{ type: "spring", duration: 1, delay: .3 }}
                                         className="logo" key={idx}>&nbsp;{char}</motion.span>
                             }
                             )
