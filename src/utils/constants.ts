@@ -1,1 +1,1 @@
-export const isMobile = window.innerWidth < 500;
+export const isMobile = window.innerWidth < 600;

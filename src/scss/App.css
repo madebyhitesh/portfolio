@@ -22,7 +22,7 @@ p {
 }
 
 .App {
-  height: 100vh;
+  min-height: 100vh;
   background: #14213D;
 }
 
@@ -36,6 +36,7 @@ p {
 }
 
 .home-page .landing-left-section {
+  min-height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -49,6 +50,7 @@ p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 5;
 }
 
 .home-page .landing-left-section .text {
@@ -64,18 +66,18 @@ p {
 }
 
 .home-page .landing-left-section .text p {
-  font-size: 1.2rem;
+  margin-top: 1rem;
+  font-size: 1rem;
 }
 
 .home-page .landing-left-section .text span {
   position: relative;
   display: inline-block;
   cursor: default;
-  z-index: 1;
 }
 
 .home-page .landing-left-section .action-buttons {
-  margin-top: 1rem;
+  margin-top: 1.4rem;
 }
 
 .home-page .landing-left-section .action-buttons button {
@@ -85,6 +87,36 @@ p {
 
 .home-page .landing-left-section .action-buttons button:last-child {
   margin-left: 1rem;
+}
+
+.home-page .social-links {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home-page .social-links svg {
+  margin: .5rem 0;
+}
+
+.home-page .social-links svg:hover {
+  cursor: pointer;
+}
+
+.home-page .social-links .vertical-line {
+  height: 30px;
+  width: 2px;
+  background-color: #E5E5E5;
 }
 
 nav {
@@ -131,6 +163,7 @@ input[type=checkbox] {
           transform: translateX(-100%) scale(0.5);
   -webkit-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
   transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  z-index: 50;
 }
 
 .nav-links li {
@@ -185,6 +218,7 @@ input[type=checkbox] {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  z-index: 50;
 }
 
 .hamburger-menu,
@@ -233,26 +267,47 @@ button {
 }
 
 .btn {
+  position: relative;
   height: 40px;
   width: 84px;
   color: #fff;
   font-family: "Roboto",sans-serif;
   border-radius: 12px;
   letter-spacing: 1px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  width: 100%;
+  height: 100%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  background: #E5E5E5;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+  z-index: -2;
 }
 
 .btn:hover {
   cursor: pointer;
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
-  transition: -webkit-transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
-  transition: transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
-  transition: transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91), -webkit-transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
+  color: #14213D;
+}
+
+.btn:hover::before {
+  top: 0;
+  left: 0;
 }
 
 .btn.primary {
   background: #FCA311;
+}
+
+.btn.primary:hover {
+  background-color: transparent;
 }
 
 .btn.outlined-primary {
@@ -260,7 +315,117 @@ button {
   border: 3px solid #FCA311;
 }
 
-@media all and (min-width: 500px) {
+.btn.outlined-primary:hover {
+  border: none;
+}
+
+/*waves****************************/
+.box {
+  position: fixed;
+  top: 0;
+  -webkit-transform: rotate(80deg);
+          transform: rotate(80deg);
+  left: 0;
+}
+
+.wave {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: .4;
+  position: absolute;
+  top: 3%;
+  left: 10%;
+  background: #070c17;
+  width: 1500px;
+  height: 1300px;
+  margin-left: -150px;
+  margin-top: -250px;
+  -webkit-transform-origin: 50% 48%;
+          transform-origin: 50% 48%;
+  border-radius: 43%;
+  -webkit-animation: drift 15s infinite linear;
+          animation: drift 15s infinite linear;
+}
+
+.wave.-three {
+  -webkit-animation: drift 13s infinite linear;
+          animation: drift 13s infinite linear;
+  position: fixed;
+  background: #111d35;
+}
+
+.wave.-two {
+  -webkit-animation: drift 10s infinite linear;
+          animation: drift 10s infinite linear;
+  opacity: .1;
+  background: black;
+  position: fixed;
+}
+
+.box:after {
+  content: '';
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+@-webkit-keyframes drift {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  from {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes drift {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  from {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+/*LOADING SPACE*/
+.contain {
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  z-index: 1000;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#14213D));
+  background: linear-gradient(#000, #14213D);
+}
+
+@media all and (min-width: 650px) {
   nav {
     -ms-grid-columns: 10% 1fr 20%;
         grid-template-columns: 10% 1fr 20%;
@@ -313,6 +478,12 @@ button {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+  }
+  .home-page .landing-left-section .text h1, .home-page .landing-left-section .text .logo {
+    font-size: 4rem;
+  }
+  .home-page .landing-left-section .text p {
+    font-size: 1.2rem;
   }
   .home-page .landing-left-section .action-buttons {
     margin-top: 1rem;

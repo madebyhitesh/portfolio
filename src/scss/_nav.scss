@@ -26,6 +26,7 @@ input[type=checkbox]{
     bottom: 0;
     transform: translateX(-100%) scale(.5);
     transition:all .3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    z-index: 50;
     li{
         font-size: 2rem;
         color:$light-color;
@@ -71,6 +72,7 @@ input[type=checkbox]{
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  z-index: 50;
 }
 
 .hamburger-menu,
