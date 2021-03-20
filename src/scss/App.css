@@ -32,7 +32,9 @@ p {
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
   margin-top: 1rem;
-  padding: 0 1rem;
+  padding: 1rem;
+  position: relative;
+  height: calc(100vh - 6rem);
 }
 
 .home-page .landing-left-section {
@@ -92,21 +94,23 @@ p {
 .home-page .social-links {
   position: absolute;
   right: 1rem;
-  bottom: 1rem;
+  bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 10;
 }
 
 .home-page .social-links svg {
-  margin: .5rem 0;
+  height: 2rem;
+  margin: 1rem .5rem;
 }
 
 .home-page .social-links svg:hover {
@@ -117,6 +121,87 @@ p {
   height: 30px;
   width: 2px;
   background-color: #E5E5E5;
+}
+
+.project-page {
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.project-page section {
+  margin-top: 1rem;
+  display: -ms-grid;
+  display: grid;
+  padding: 0 1rem;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  gap: 1rem 0;
+}
+
+.project-page section .project-card {
+  height: 350px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+  border-radius: 6px;
+}
+
+.project-page section .project-card .hero {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.project-page section .project-card .card-overlay {
+  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: 50%;
+  width: 100%;
+  background-color: #cccccc;
+  z-index: 1;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.project-page section .project-card .card-overlay.top {
+  top: -100%;
+  border-bottom-left-radius: 200%;
+  border-bottom-right-radius: 200%;
+}
+
+.project-page section .project-card .card-overlay.bottom {
+  bottom: -100%;
+  border-top-left-radius: 200%;
+  border-top-right-radius: 200%;
+}
+
+.project-page section .project-card .card-overlay.bottom button {
+  margin: 0 1rem;
+}
+
+.project-page section .project-card .card-overlay.bottom button.outlined-primary {
+  color: #000;
+}
+
+.project-page section .project-card:hover, .project-page section .project-card:focus {
+  -webkit-transition: all .5s ease-in;
+  transition: all .5s ease-in;
+  cursor: pointer;
+}
+
+.project-page section .project-card:hover .card-overlay.top, .project-page section .project-card:focus .card-overlay.top {
+  top: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.project-page section .project-card:hover .card-overlay.bottom, .project-page section .project-card:focus .card-overlay.bottom {
+  bottom: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 nav {
@@ -266,6 +351,15 @@ button {
   outline: none;
 }
 
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.text-primary {
+  color: #FCA311;
+}
+
 .btn {
   position: relative;
   height: 40px;
@@ -319,6 +413,40 @@ button {
   border: none;
 }
 
+.page-heading {
+  position: relative;
+  z-index: 3;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: .2fr .3fr 1fr;
+      grid-template-columns: .2fr .3fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 1rem;
+}
+
+.page-heading h1 {
+  color: #E5E5E5;
+  font-size: 2.5rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.page-heading .line-one {
+  margin-right: auto;
+}
+
+.page-heading .line-two {
+  margin-left: auto;
+}
+
 /*waves****************************/
 .box {
   position: fixed;
@@ -326,9 +454,11 @@ button {
   -webkit-transform: rotate(80deg);
           transform: rotate(80deg);
   left: 0;
+  pointer-events: none;
 }
 
 .wave {
+  pointer-events: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -401,7 +531,7 @@ button {
 .contain {
   -webkit-animation-delay: 4s;
           animation-delay: 4s;
-  z-index: 1000;
+  z-index: 5;
   pointer-events: none;
   position: fixed;
   top: 0;
@@ -496,6 +626,27 @@ button {
   }
   .home-page .landing-right-section .logo {
     font-size: 25rem;
+  }
+  .home-page .social-links {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .home-page .social-links svg {
+    height: 2rem;
+    margin: 1rem .5rem;
+  }
+  .page-heading .line {
+    width: 100%;
+  }
+  .project-page section {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .project-page section .project-card {
+    height: 250px;
   }
 }
 /*# sourceMappingURL=App.css.map */

@@ -7,6 +7,15 @@ button{
     outline: none;
 }
 
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.text-primary{
+    color:$primary-color;
+}
+
 .btn{
     position: relative;
     height: 40px;
@@ -52,5 +61,28 @@ button{
     border:3px solid $primary-color;
     &:hover{
         border: none;
+    }
+}
+
+
+.page-heading{
+    position: relative;
+    z-index:3;
+    display: grid;
+    grid-template-columns: .2fr .3fr 1fr;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    h1{
+        color:$light-color;
+        font-size: 2.5rem;
+        align-self: center;
+        justify-self: center;
+    }
+    .line-one{
+        margin-right: auto;
+    }
+    .line-two{
+        margin-left: auto;
     }
 }

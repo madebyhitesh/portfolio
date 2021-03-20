@@ -64,5 +64,36 @@
                 font-size: 25rem;
             }
         }
+        .social-links{
+            flex-direction: column;
+    
+            svg{
+                height: 2rem;
+                margin: 1rem .5rem;
+            }
+        }
+    }
+
+
+    .page-heading{
+        .line{
+            width: 100%;
+        }
+      
+
+    }
+
+    //------------------------project-page------------------
+
+    .project-page{
+        section{
+            grid-template-columns: 1fr 1fr;
+            gap:1rem;
+            
+                //-----------------project-card-------------------
+                .project-card{
+                    height: 250px;
+                }
+        }
     }
 }
