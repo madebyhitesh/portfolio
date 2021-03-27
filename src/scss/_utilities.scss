@@ -86,3 +86,13 @@ img{
         margin-left: auto;
     }
 }
+
+.heading{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    h2{
+        margin: 0 1rem;
+    }
+}

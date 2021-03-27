@@ -1,3 +1,4 @@
+import About from "./components/About";
 import Home from "./components/Home"
 import Navbar from "./components/Navbar"
 import Projects from "./components/Projects";
@@ -9,6 +10,7 @@ const App = () => {
       <Navbar />
       <Home />
       <Projects />
+      <About />
 
       {/* background waves animation  */}
       <Waves />

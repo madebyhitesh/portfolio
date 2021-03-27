@@ -25,6 +25,7 @@ p{
 .App{
     min-height: 100vh;
     background:$dark-color;
+    color:$light-color;
 }
 
 // --------------------home-page-----------------------
@@ -105,15 +106,22 @@ p{
     }
 }
 
-
-.project-page{
+//----------------------project page-------------------
+.project-page,.about-page{
     min-height: 100vh;
-    padding: 2rem 0;
-
+    padding: 2rem 0; 
+    position: relative;  
+    z-index: 5;
     section{
         margin-top:1rem;
         display: grid;
         padding: 0 1rem;
+    }
+}
+
+.project-page{
+
+    section{
         grid-template-columns: 1fr;
         gap:1rem 0;
 
@@ -123,7 +131,6 @@ p{
             background-color: rgba($color: $black, $alpha: 0.2);
             overflow: hidden;
             position: relative;
-            z-index: 5;
             border-radius: 6px;
 
             .hero{
@@ -178,6 +185,61 @@ p{
             }
             
         }
+    }
+}
+
+
+//------------------- about page ------------------------
+
+.about-page{
+    section{
+        .profile-pic{
+            place-self: center;
+            height: 15rem;
+            width: 15rem;
+            overflow: hidden;
+            border-radius: 50%;
+            object-fit: fill;
+        }
+
+        .description{
+            margin-top: 1rem;
+            .bio{
+                display: grid;
+                grid-template-columns: 1fr;
+                div{
+                    margin: .5rem 0;
+                    display: flex;
+                    width: 100%;
+                    align-items: center;
+                    justify-content: space-between
+                }
+            }
+        }
+
+        .container-skills{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem 0;
+            width: 100%;
+            .skills-container{
+                width: 100%;
+                .skill-type{
+                    text-decoration: underline;
+                    text-decoration-color: $primary-color;
+                    text-decoration-thickness: 3px;
+                }
+                ul{
+                    margin-top: .5rem;
+                    li{
+                        margin-top: 0.3rem;
+                        font-family: "Nunito",sans-serif;
+                    }
+                }
+            }
+        }
+
+     
     }
 }
 

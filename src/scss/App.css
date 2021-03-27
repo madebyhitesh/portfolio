@@ -24,6 +24,7 @@ p {
 .App {
   min-height: 100vh;
   background: #14213D;
+  color: #E5E5E5;
 }
 
 .home-page {
@@ -123,16 +124,21 @@ p {
   background-color: #E5E5E5;
 }
 
-.project-page {
+.project-page, .about-page {
   min-height: 100vh;
   padding: 2rem 0;
+  position: relative;
+  z-index: 5;
 }
 
-.project-page section {
+.project-page section, .about-page section {
   margin-top: 1rem;
   display: -ms-grid;
   display: grid;
   padding: 0 1rem;
+}
+
+.project-page section {
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
   gap: 1rem 0;
@@ -144,7 +150,6 @@ p {
   background-color: rgba(0, 0, 0, 0.2);
   overflow: hidden;
   position: relative;
-  z-index: 5;
   border-radius: 6px;
 }
 
@@ -202,6 +207,70 @@ p {
   bottom: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.about-page section .profile-pic {
+  place-self: center;
+  height: 15rem;
+  width: 15rem;
+  overflow: hidden;
+  border-radius: 50%;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.about-page section .description {
+  margin-top: 1rem;
+}
+
+.about-page section .description .bio {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+.about-page section .description .bio div {
+  margin: .5rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.about-page section .container-skills {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  gap: 1rem 0;
+  width: 100%;
+}
+
+.about-page section .container-skills .skills-container {
+  width: 100%;
+}
+
+.about-page section .container-skills .skills-container .skill-type {
+  text-decoration: underline;
+  -webkit-text-decoration-color: #FCA311;
+          text-decoration-color: #FCA311;
+  text-decoration-thickness: 3px;
+}
+
+.about-page section .container-skills .skills-container ul {
+  margin-top: .5rem;
+}
+
+.about-page section .container-skills .skills-container ul li {
+  margin-top: 0.3rem;
+  font-family: "Nunito",sans-serif;
 }
 
 nav {
@@ -447,6 +516,23 @@ img {
   margin-left: auto;
 }
 
+.heading {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.heading h2 {
+  margin: 0 1rem;
+}
+
 /*waves****************************/
 .box {
   position: fixed;
@@ -647,6 +733,28 @@ img {
   }
   .project-page section .project-card {
     height: 250px;
+  }
+  .about-page section {
+    -ms-grid-columns: .5fr 1fr;
+        grid-template-columns: .5fr 1fr;
+  }
+  .about-page section .description .bio {
+    font-size: 1.2rem;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    gap: .3rem 1rem;
+  }
+  .about-page section .container-skills {
+    margin-top: 1rem;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+  .about-page section .container-skills .skills-container {
+    width: 100%;
+  }
+  .about-page section .container-skills .skills-container ul li {
+    margin-top: 0.3rem;
+    font-family: "Nunito",sans-serif;
   }
 }
 /*# sourceMappingURL=App.css.map */

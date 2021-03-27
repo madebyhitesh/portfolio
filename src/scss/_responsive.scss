@@ -96,4 +96,33 @@
                 }
         }
     }
+
+    //--------------------about page -------------------------
+    .about-page{
+        section{
+            grid-template-columns: .5fr 1fr;
+
+           .description{
+               .bio{
+                   font-size: 1.2rem;
+                   grid-template-columns: 1fr 1fr;
+                   gap: .3rem 1rem;
+                }
+           }
+
+           .container-skills{
+            margin-top: 1rem;
+            grid-template-columns: repeat(4,1fr);
+            .skills-container{
+                width: 100%;
+                ul{
+                    li{
+                        margin-top: 0.3rem;
+                        font-family: "Nunito",sans-serif;
+                    }
+                }
+            }
+        }
+        }
+    }
 }

@@ -47,18 +47,25 @@ const Home = () => {
                     <h1>
                         {
                             line2.split("").map((char: string, idx) => {
-                                if (char !== "H")
+                                if (char === "H")
+                                    return <motion.span
+                                        initial={{ y: -230, x: -100, scaleY: .8, opacity: 0 }}
+                                        animate={{ y: [-230, 5, -2, 3, 0], x: [-100, 5, -2, 3, 0], scaleY: [1, .5, 1.2, .8, 1], opacity: 1 }}
+                                        transition={{ type: "spring", duration: 1, delay: .3 }}
+                                        className="logo"
+                                        key={idx}>{char}</motion.span>
+                                else if (char === "m")
+                                    return <motion.span
+                                        initial="visible"
+                                        whileHover="hover"
+                                        variants={textHoverVariants}
+                                        key={idx}>{char}&nbsp;</motion.span>
+                                else
                                     return <motion.span
                                         initial="visible"
                                         whileHover="hover"
                                         variants={textHoverVariants}
                                         key={idx}>{char}</motion.span>
-                                else
-                                    return <motion.span
-                                        initial={{ y: -230, x: -100, scaleY: .8, opacity: 0 }}
-                                        animate={{ y: [-230, 5, -2, 3, 0], x: [-100, 5, -2, 3, 0], scaleY: [1, .5, 1.2, .8, 1], opacity: 1 }}
-                                        transition={{ type: "spring", duration: 1, delay: .3 }}
-                                        className="logo" key={idx}>&nbsp;{char}</motion.span>
                             }
                             )
                         }
@@ -66,7 +73,7 @@ const Home = () => {
                     <h1>
                         {
                             line3.split("").map((char: string, idx) => {
-                                if (char !== "D")
+                                if (char !== "b")
                                     return <motion.span
                                         initial="visible"
                                         whileHover="hover"
@@ -77,7 +84,7 @@ const Home = () => {
                                         initial="visible"
                                         whileHover="hover"
                                         variants={textHoverVariants}
-                                        key={idx}>&nbsp;{char}</motion.span>
+                                        key={idx}>{char}&nbsp;</motion.span>
                             }
                             )
                         }
@@ -85,7 +92,7 @@ const Home = () => {
                     <p>
                         {
                             line4.split("").map((char: string, idx) => {
-                                if (char !== "d" && char !== "|" && char !== "M")
+                                if (char !== "k" && char !== "r" && char !== "|")
                                     return <motion.span
                                         initial="visible"
                                         whileHover="hover"
@@ -96,7 +103,7 @@ const Home = () => {
                                         initial="visible"
                                         whileHover="hover"
                                         variants={textHoverVariants}
-                                        key={idx}>&nbsp;{char}</motion.span>
+                                        key={idx}>{char}&nbsp;</motion.span>
                             }
 
 
