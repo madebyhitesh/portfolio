@@ -1,6 +1,4 @@
 import { isMobile } from "./constants"
-import mobileImage from '../utils/mobile.png'
-import desktopImage from '../utils/desktop.png'
 
 export interface IProjectCard {
     name: string,
