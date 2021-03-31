@@ -13,6 +13,19 @@ p {
   font-family: 'Nunito', sans-serif;
 }
 
+body {
+  background: #14213D;
+}
+
+input, textarea {
+  border: none;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
 .logo {
   font-family: 'Lilita One', cursive;
   color: #FCA311;
@@ -23,6 +36,9 @@ p {
 
 .App {
   min-height: 100vh;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
   background: #14213D;
   color: #E5E5E5;
 }
@@ -35,7 +51,7 @@ p {
   margin-top: 1rem;
   padding: 1rem;
   position: relative;
-  height: calc(100vh - 6rem);
+  height: 90vh;
 }
 
 .home-page .landing-left-section {
@@ -65,12 +81,12 @@ p {
 }
 
 .home-page .landing-left-section .text h1, .home-page .landing-left-section .text .logo {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .home-page .landing-left-section .text p {
   margin-top: 1rem;
-  font-size: 1rem;
+  font-size: .9rem;
 }
 
 .home-page .landing-left-section .text span {
@@ -124,14 +140,14 @@ p {
   background-color: #E5E5E5;
 }
 
-.project-page, .about-page {
+.project-page, .about-page, .contact-page {
   min-height: 100vh;
   padding: 2rem 0;
   position: relative;
   z-index: 5;
 }
 
-.project-page section, .about-page section {
+.project-page section, .about-page section, .contact-page section {
   margin-top: 1rem;
   display: -ms-grid;
   display: grid;
@@ -210,7 +226,8 @@ p {
 }
 
 .about-page section .profile-pic {
-  place-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
   height: 15rem;
   width: 15rem;
   overflow: hidden;
@@ -254,14 +271,21 @@ p {
 }
 
 .about-page section .container-skills .skills-container {
+  margin-top: 1rem;
   width: 100%;
 }
 
 .about-page section .container-skills .skills-container .skill-type {
-  text-decoration: underline;
-  -webkit-text-decoration-color: #FCA311;
-          text-decoration-color: #FCA311;
-  text-decoration-thickness: 3px;
+  position: relative;
+}
+
+.about-page section .container-skills .skills-container .skill-type::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 30px;
+  bottom: -3%;
+  background: #FCA311;
 }
 
 .about-page section .container-skills .skills-container ul {
@@ -273,11 +297,70 @@ p {
   font-family: "Nunito",sans-serif;
 }
 
+.contact-page {
+  min-height: 50vh;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+.contact-page section .left-side p {
+  margin-top: .7rem;
+  opacity: .8;
+}
+
+.contact-page section .right-side {
+  margin-top: 1rem;
+}
+
+.contact-page section .right-side form .feild {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 0.6rem;
+}
+
+.contact-page section .right-side form .feild label {
+  color: #E5E5E5;
+  opacity: .8;
+}
+
+.contact-page section .right-side form .feild input, .contact-page section .right-side form .feild textarea {
+  background: #111d35;
+  font-size: 1.2rem;
+  font-family: "Nunito",sans-serif;
+  padding: 0.4rem 0.3rem;
+  color: #fff;
+  margin-top: 3px;
+  border-radius: 6px;
+  -webkit-transition: border 1s ease;
+  transition: border 1s ease;
+}
+
+.contact-page section .right-side form .feild input:focus, .contact-page section .right-side form .feild textarea:focus {
+  border: 1px solid #E5E5E5;
+}
+
+.contact-page section .right-side form .feild textarea {
+  font-size: 1rem;
+}
+
+.contact-page section .right-side form .submit-btn {
+  margin-top: 1rem;
+  width: 100%;
+  border-radius: 6px;
+}
+
 nav {
   position: relative;
   display: -ms-grid;
   display: grid;
   width: 100%;
+  height: 10vh;
+  max-height: 50px;
   -ms-grid-columns: 10% 1fr 10%;
       grid-template-columns: 10% 1fr 10%;
   -webkit-box-pack: justify;
@@ -420,6 +503,10 @@ button {
   outline: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 img {
   height: 100%;
   width: 100%;
@@ -531,6 +618,23 @@ img {
 
 .heading h2 {
   margin: 0 1rem;
+}
+
+.experience {
+  margin-top: 1rem;
+}
+
+.experience .title p {
+  margin-top: 0.2rem;
+  font-size: 1.1rem;
+}
+
+.experience ul {
+  margin-top: 0.2rem;
+}
+
+.experience li {
+  margin-bottom: .4rem;
 }
 
 /*waves****************************/
@@ -755,6 +859,25 @@ img {
   .about-page section .container-skills .skills-container ul li {
     margin-top: 0.3rem;
     font-family: "Nunito",sans-serif;
+  }
+  .contact-page section {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+  .contact-page section .left-side {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .contact-page section .left-side h2 {
+    font-size: 3rem;
   }
 }
 /*# sourceMappingURL=App.css.map */

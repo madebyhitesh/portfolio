@@ -14,6 +14,18 @@ p{
     font-family: 'Nunito', sans-serif;
 }
 
+body{
+    background: $dark-color;
+}
+
+input,textarea{
+    border:none;
+    outline:none;
+}
+
+textarea{
+    resize: none;
+}
 .logo{
     font-family: 'Lilita One', cursive;
     color:$primary-color;
@@ -24,6 +36,9 @@ p{
 
 .App{
     min-height: 100vh;
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
     background:$dark-color;
     color:$light-color;
 }
@@ -34,9 +49,9 @@ p{
     display: grid;
     grid-template-columns: 1fr;
     margin-top: 1rem;
-    padding:  1rem;
+    padding:1rem;
     position: relative;
-    height: $page-height;
+    height: 90vh;
     .landing-left-section{
         min-height: 500px;
         display: flex;
@@ -52,11 +67,11 @@ p{
                 letter-spacing: 3px;
             }
             h1,.logo{
-                font-size:3rem;
+                font-size:2.5rem;
             }
             p{
                 margin-top:1rem;
-                font-size: 1rem;
+                font-size: .9rem;
             }
 
             span{
@@ -107,7 +122,7 @@ p{
 }
 
 //----------------------project page-------------------
-.project-page,.about-page{
+.project-page,.about-page,.contact-page{
     min-height: 100vh;
     padding: 2rem 0; 
     position: relative;  
@@ -194,7 +209,7 @@ p{
 .about-page{
     section{
         .profile-pic{
-            place-self: center;
+            justify-self: center;
             height: 15rem;
             width: 15rem;
             overflow: hidden;
@@ -223,11 +238,18 @@ p{
             gap: 1rem 0;
             width: 100%;
             .skills-container{
+                margin-top: 1rem;
                 width: 100%;
                 .skill-type{
-                    text-decoration: underline;
-                    text-decoration-color: $primary-color;
-                    text-decoration-thickness: 3px;
+                    position: relative;
+                 &::before{
+                     content: "";
+                     position: absolute;
+                     height: 3px;
+                     width: 30px;
+                     bottom: -3%;
+                     background: $primary-color;
+                 }
                 }
                 ul{
                     margin-top: .5rem;
@@ -240,6 +262,55 @@ p{
         }
 
      
+    }
+}
+
+//-----------------contact page---------------
+.contact-page{
+    min-height: 50vh;
+    grid-template-columns: 1fr;
+    section{
+        .left-side{
+           p{
+               margin-top: .7rem;
+               opacity: .8;
+           }
+        }
+        .right-side{
+            margin-top:1rem;
+            form{
+                .feild{
+                    display:flex;
+                    flex-direction: column;
+                    margin-bottom: 0.6rem;
+                    label{
+                        color:$light-color;
+                        opacity: .8;
+                    }
+                    input,textarea{
+                        background: darken($dark-color,2);
+                        font-size: 1.2rem;
+                        font-family: "Nunito",sans-serif;
+                        padding:0.4rem 0.3rem;
+                        color:$white;
+                        margin-top: 3px;
+                        border-radius: 6px;
+                        transition:border 1s ease;
+                        &:focus{
+                            border: 1px solid $light-color;
+                        }
+                    }
+                    textarea{
+                        font-size: 1rem;
+                    }
+                }
+                .submit-btn{
+                    margin-top: 1rem;
+                    width: 100%;
+                    border-radius: 6px
+                }
+            }
+        }
     }
 }
 

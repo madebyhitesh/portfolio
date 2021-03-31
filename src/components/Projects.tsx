@@ -1,16 +1,17 @@
+import useDatabase from "../firebase/useDatabase"
 import PageHeading from "../utils/PageHeading"
-import ProjectCard from "../utils/ProjectCard"
+import ProjectCard, { IProjectCard } from "../utils/ProjectCard"
 
 const Projects = () => {
 
-
+    const { docs: projects } = useDatabase("projects")
     return (
         <div className="project-page">
             <PageHeading heading="Projects" />
             <section>
                 {
-                    [1, 2, 3, 4].map(project => (
-                        <ProjectCard key={project} />
+                    projects.map(({ url, github, name, mobile, desktop }: IProjectCard) => (
+                        <ProjectCard url={url} name={name} mobile={mobile} desktop={desktop} github={github} />
                     ))
                 }
             </section>

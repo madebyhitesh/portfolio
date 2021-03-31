@@ -1,6 +1,9 @@
+import useDatabase from "../firebase/useDatabase";
+import Experience, { IExperience } from "../utils/Experience";
 import PageHeading from "../utils/PageHeading";
 import ProfilePic from "../utils/profile.jpg";
 import SkillsContainer from "../utils/SkillsContainer";
+
 
 
 function myAge(dateString: string) {
@@ -24,10 +27,26 @@ const toolsUsed: Array<string> = [
     "NPM and Yarn", "Git", "Figma"
 ]
 const otherSkills: Array<string> = [
-    "Mobile Fist design"
+    "Mobile First design"
 ]
 
+// const experience: IExperience = {
+//     companyName: "Csyrus Techologies Pvt Ltd, Bangalore",
+//     experience: "8 months",
+//     list: [
+//         "Supporting development, maintaining, and updating websites",
+//         "Assisting in deployment of websites",
+//         "Writing codes for web based solutions",
+//         "Creating new web-based tools",
+//         "Resolving complaints of customers and responding to their suggestions to improve the products"
+
+//     ],
+//     designation: "Frontend Developer"
+// }
+
 const About = () => {
+
+    const { docs: experiences } = useDatabase("experience")
 
 
     return (
@@ -64,12 +83,12 @@ const About = () => {
 
                     <div className="skills">
                         <div className="heading">
-                            <svg className="line-two" width="60%" height="3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg className="line-two" width={"2%"} height="3" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M0 3L985 2.99991" stroke="#efefef" stroke-width="2" />
                             </svg>
                             <h2 className="text-primary">Skills</h2>
-                            <svg className="line-two" width="60%" height="3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg className="line-two" width="100%" height="3" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M0 3L985 2.99991" stroke="#efefef" stroke-width="2" />
                             </svg>
@@ -82,6 +101,27 @@ const About = () => {
                             <SkillsContainer skillType="Other skills" skillsList={otherSkills} />
                         </div>
 
+                        <div className="heading">
+                            <svg className="line-two" width={"2%"} height="3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 3L985 2.99991" stroke="#efefef" stroke-width="2" />
+                            </svg>
+                            <h2 className="text-primary">Experience</h2>
+                            <svg className="line-two" width="100%" height="3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 3L985 2.99991" stroke="#efefef" stroke-width="2" />
+                            </svg>
+                        </div>
+
+                        <div className="container-experience">
+                            {
+                                experiences.map((experience: IExperience) => (
+                                    <Experience company={experience.company} experience={experience.experience} list={experience.list} designation={experience.designation} />
+
+                                ))
+                            }
+                        </div>
+
                         {/* <table>
                             <thead>
                                 <tr>
@@ -89,54 +129,54 @@ const About = () => {
                                     <th className="text-primary">
                                         Frontend
                                 </th>
-                                    <th className="text-primary">
-                                        Backend
+                        <th className="text-primary">
+                            Backend
                                 </th>
-                                    <th className="text-primary">
-                                        Tools used
+                        <th className="text-primary">
+                            Tools used
                                 </th>
-                                    <th className="text-primary">
-                                        Other skills
+                        <th className="text-primary">
+                            Other skills
                                 </th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>HTML, Css, JS</td>
-                                    <td>Nodejs</td>
-                                    <td>npm and yarn</td>
-                                    <td>Mobile first design</td>
-                                </tr>
-                                <tr>
-                                    <td>Typescript</td>
-                                    <td>Graphql</td>
-                                    <td>Git</td>
-                                </tr>
-                                <tr>
-                                    <td>React.js</td>
-                                    <td>Express js</td>
-                                    <td>Postman</td>
-                                </tr>
-                                <tr>
-                                    <td>Redux</td>
-                                    <td>Mongo DB</td>
-                                    <td>Figma</td>
-                                </tr>
-                                <tr>
-                                    <td>Scss</td>
-                                    <td>REST APIs</td>
-                                </tr>
-                                <tr>
-                                    <td>React Bootstrap</td>
-                                </tr>
-                            </tbody>
+                <tbody>
+                    <tr>
+                        <td>HTML, Css, JS</td>
+                        <td>Nodejs</td>
+                        <td>npm and yarn</td>
+                        <td>Mobile first design</td>
+                    </tr>
+                    <tr>
+                        <td>Typescript</td>
+                        <td>Graphql</td>
+                        <td>Git</td>
+                    </tr>
+                    <tr>
+                        <td>React.js</td>
+                        <td>Express js</td>
+                        <td>Postman</td>
+                    </tr>
+                    <tr>
+                        <td>Redux</td>
+                        <td>Mongo DB</td>
+                        <td>Figma</td>
+                    </tr>
+                    <tr>
+                        <td>Scss</td>
+                        <td>REST APIs</td>
+                    </tr>
+                    <tr>
+                        <td>React Bootstrap</td>
+                    </tr>
+                </tbody>
                         </table> */}
 
                     </div>
 
-                </div>
-            </section>
-        </div>
+                </div >
+            </section >
+        </div >
 
     )
 }

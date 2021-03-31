@@ -2,7 +2,15 @@ import { isMobile } from "./constants"
 import mobileImage from '../utils/mobile.png'
 import desktopImage from '../utils/desktop.png'
 
-const ProjectCard = () => {
+export interface IProjectCard {
+    name: string,
+    mobile: string,
+    desktop: string,
+    url?: string,
+    github?: string
+}
+
+const ProjectCard = ({ desktop, mobile, name, github, url }: IProjectCard) => {
 
     return (
         <div className="project-card"
@@ -10,22 +18,28 @@ const ProjectCard = () => {
             <div className="hero">
                 {
                     isMobile ?
-                        <img src={mobileImage} alt="mobile" /> :
-                        <img src={desktopImage} alt="desktop" />
+                        <img src={mobile} alt={name} /> :
+                        <img src={desktop} alt={name} />
                 }
             </div>
             <div
                 className="card-overlay top">
-                <h2 className="text-primary">Food Express</h2>
+                <h2 className="text-primary">{name}</h2>
             </div>
             <div className="card-overlay bottom">
                 <div className="links">
-                    <button className="btn primary">
-                        Demo
-                        </button>
-                    <button className="btn outlined-primary">
-                        GitHub
-                        </button>
+                    {
+                        url ?
+                            <button className="btn primary" onClick={() => window.open(url)}>
+                                Demo
+                            </button> : null
+                    }
+                    {
+                        github ?
+                            <button className="btn outlined-primary" onClick={() => window.open(github)}>
+                                GitHub
+                            </button> : null
+                    }
                 </div>
             </div>
         </div>

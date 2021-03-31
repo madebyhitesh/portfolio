@@ -125,4 +125,24 @@
         }
         }
     }
+
+
+    //------------------contact page-------------
+.contact-page{
+    section{
+        grid-template-columns: 1fr 1fr;
+
+        .left-side{
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            h2{
+                font-size: 3rem;
+            }
+           
+        }
+    }
+}
 }

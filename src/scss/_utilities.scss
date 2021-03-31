@@ -7,6 +7,10 @@ button{
     outline: none;
 }
 
+a{
+    text-decoration: none;
+}
+
 img{
     height: 100%;
     width: 100%;
@@ -94,5 +98,23 @@ img{
     justify-content:flex-start;
     h2{
         margin: 0 1rem;
+    }
+}
+
+.experience{
+    margin-top: 1rem;
+    .title{
+
+        p{
+            margin-top: 0.2rem;
+            font-size: 1.1rem;
+        }
+    }
+    ul{
+        margin-top: 0.2rem;
+    }
+
+    li{
+        margin-bottom: .4rem;
     }
 }
