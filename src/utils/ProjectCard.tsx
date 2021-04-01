@@ -12,6 +12,7 @@ const ProjectCard = ({ desktop, mobile, name, github, url }: IProjectCard) => {
 
     return (
         <div className="project-card"
+            id="#project"
         >
             <div className="hero">
                 {

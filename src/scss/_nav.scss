@@ -1,5 +1,5 @@
 nav{
-  position: relative;
+  position: sticky;
     display: grid;
     width: 100%;
     height: 10vh;
@@ -31,10 +31,13 @@ input[type=checkbox]{
     z-index: 50;
     li{
         font-size: 2rem;
-        color:$light-color;
         font-family: "Nunito",sans-serif;
         margin-top:1rem;
         opacity: .8;
+        a{
+          color:$light-color;
+          text-decoration: none;
+        }
         &:hover{
           font-weight: 700;
         opacity: 1;
@@ -75,6 +78,7 @@ input[type=checkbox]{
   align-items: center;
   cursor: pointer;
   z-index: 50;
+  transition: all .5s ease;
 }
 
 .hamburger-menu,

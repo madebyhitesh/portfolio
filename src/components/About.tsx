@@ -50,7 +50,7 @@ const About = () => {
 
 
     return (
-        <div className="about-page">
+        <div className="about-page" id="about">
             <PageHeading heading="About" />
             <section>
                 <div className="profile-pic">
@@ -85,12 +85,12 @@ const About = () => {
                         <div className="heading">
                             <svg className="line-two" width={"2%"} height="3" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                    d="M0 3L985 2.99991" stroke="#efefef" stroke-width="2" />
+                                    d="M0 3L985 2.99991" stroke="#efefef" strokeWidth="2" />
                             </svg>
                             <h2 className="text-primary">Skills</h2>
                             <svg className="line-two" width="100%" height="3" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                    d="M0 3L985 2.99991" stroke="#efefef" stroke-width="2" />
+                                    d="M0 3L985 2.99991" stroke="#efefef" strokeWidth="2" />
                             </svg>
                         </div>
 
@@ -104,19 +104,19 @@ const About = () => {
                         <div className="heading">
                             <svg className="line-two" width={"2%"} height="3" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                    d="M0 3L985 2.99991" stroke="#efefef" stroke-width="2" />
+                                    d="M0 3L985 2.99991" stroke="#efefef" strokeWidth="2" />
                             </svg>
                             <h2 className="text-primary">Experience</h2>
                             <svg className="line-two" width="100%" height="3" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                    d="M0 3L985 2.99991" stroke="#efefef" stroke-width="2" />
+                                    d="M0 3L985 2.99991" stroke="#efefef" strokeWidth="2" />
                             </svg>
                         </div>
 
                         <div className="container-experience">
                             {
                                 experiences.map((experience: IExperience) => (
-                                    <Experience company={experience.company} experience={experience.experience} list={experience.list} designation={experience.designation} />
+                                    <Experience key={experience.company} company={experience.company} experience={experience.experience} list={experience.list} designation={experience.designation} />
 
                                 ))
                             }

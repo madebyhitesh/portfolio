@@ -2,7 +2,7 @@ import PageHeading from "../utils/PageHeading"
 
 const Contact = () => {
     return (
-        <div className="contact-page">
+        <div className="contact-page" id="contact">
             <PageHeading heading="Contact" />
             <section>
                 <div className="left-side">

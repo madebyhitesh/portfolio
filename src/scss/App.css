@@ -355,7 +355,8 @@ textarea {
 }
 
 nav {
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
   display: -ms-grid;
   display: grid;
   width: 100%;
@@ -405,10 +406,14 @@ input[type=checkbox] {
 
 .nav-links li {
   font-size: 2rem;
-  color: #E5E5E5;
   font-family: "Nunito",sans-serif;
   margin-top: 1rem;
   opacity: .8;
+}
+
+.nav-links li a {
+  color: #E5E5E5;
+  text-decoration: none;
 }
 
 .nav-links li:hover {
@@ -456,6 +461,8 @@ input[type=checkbox] {
           align-items: center;
   cursor: pointer;
   z-index: 50;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 .hamburger-menu,

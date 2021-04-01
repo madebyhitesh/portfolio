@@ -6,12 +6,12 @@ const Projects = () => {
 
     const { docs: projects } = useDatabase("projects")
     return (
-        <div className="project-page">
+        <div className="project-page" id="project">
             <PageHeading heading="Projects" />
             <section>
                 {
                     projects.map(({ url, github, name, mobile, desktop }: IProjectCard) => (
-                        <ProjectCard url={url} name={name} mobile={mobile} desktop={desktop} github={github} />
+                        <ProjectCard key={name} url={url} name={name} mobile={mobile} desktop={desktop} github={github} />
                     ))
                 }
             </section>
