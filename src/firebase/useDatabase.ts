@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { projectFirestore } from "./config"
 
 const useDatabase = (collection: any) => {
-    const [docs, setDocs] = useState([])
+    const [docs, setDocs] = useState<any>([])
 
     useEffect(() => {
         const unsub = projectFirestore.collection(collection)

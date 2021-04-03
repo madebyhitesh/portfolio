@@ -3,6 +3,11 @@ import { useInView } from "react-intersection-observer"
 import { Link, useLocation } from 'react-router-dom'
 import { isMobile } from "../utils/constants"
 
+interface INavLink {
+    title: string,
+    path: string
+}
+
 const activeLink = (pathname: string, elementPath: string): string => {
     if (pathname === elementPath)
         return "navlink active"
@@ -21,26 +26,56 @@ const menuStyles: React.CSSProperties = {
     width: "50px",
 
 }
+
+const navLinks: INavLink[] = [
+    {
+        title: "Home",
+        path: "/"
+    },
+    {
+        title: "Projects",
+        path: "/project"
+    },
+    {
+        title: "About",
+        path: "/about"
+    },
+    {
+        title: "Contact",
+        path: "/contact"
+    },
+]
+
 const Navbar = () => {
 
     const [ref, inView] = useInView()
-
-
     const [isMenuBtnClicked, setIsMenuBtnClicked] = useState(false)
     const { pathname } = useLocation()
 
-    console.log(inView)
+    const closeMenu = () => {
+        setIsMenuBtnClicked(false)
+    }
+
+
 
     return (
         <nav ref={ref}>
-            <div className="logo">
-                H
+            <Link to="/">
+                <div className="logo">
+                    H
             </div>
+            </Link>
             <ul className={isMenuBtnClicked ? "nav-links active" : "nav-links"}>
-                <li className={activeLink(pathname, "/")}><Link to="/">Home</Link></li>
-                <li className={activeLink(pathname, "/project")}><Link to="/project">Projects</Link></li>
-                <li className={activeLink(pathname, "/about")}>< Link to="/about">About</ Link></li>
-                <li className={activeLink(pathname, "/contact")}><Link to="/contact">Contact</Link></li>
+                {
+                    navLinks.map(({ path, title }) => (
+                        <li className={activeLink(pathname, path)}
+                            onClick={closeMenu}
+                            key={title}
+                        >
+                            <Link to={path}>{title}</Link>
+                        </li>
+                    ))
+                }
             </ul>
 
             <div className="nav-buttons">
@@ -50,7 +85,7 @@ const Navbar = () => {
                         <button className="btn outlined-primary">Projects</button>
                     </Link>
                 }
-                <button className="btn primary">Resume</button>
+                <button className="btn primary" onClick={() => alert("Resume is not available right now. Will be adding soon. Thanks!!")}>Resume</button>
             </div>
             {
                 isMobile &&

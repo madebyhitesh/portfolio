@@ -1,3 +1,5 @@
+import { motion } from "framer-motion"
+import { pageVariants, pageTransition } from "../App"
 import useDatabase from "../firebase/useDatabase"
 import PageHeading from "../utils/PageHeading"
 import ProjectCard, { IProjectCard } from "../utils/ProjectCard"
@@ -6,7 +8,13 @@ const Projects = () => {
 
     const { docs: projects } = useDatabase("projects")
     return (
-        <div className="project-page" id="project">
+        <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+            className="project-page" id="project">
             <PageHeading heading="Projects" />
             <section>
                 {
@@ -15,7 +23,7 @@ const Projects = () => {
                     ))
                 }
             </section>
-        </div>
+        </motion.div>
 
     )
 }

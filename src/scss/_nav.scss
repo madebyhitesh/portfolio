@@ -43,6 +43,10 @@ input[type=checkbox]{
         opacity: 1;
         cursor: pointer;
         }
+
+        &:first-child{
+          margin-top: 3rem;
+        }
     }
     li.active{
       font-family: "Roboto",sans-serif;

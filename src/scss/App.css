@@ -41,6 +41,11 @@ textarea {
   margin: 0 auto;
   background: #14213D;
   color: #E5E5E5;
+  overflow: hidden;
+}
+
+.home-page, .about-page, .contact-page, .project-page {
+  overflow: hidden;
 }
 
 .home-page {
@@ -308,6 +313,37 @@ textarea {
   opacity: .8;
 }
 
+.contact-page section .left-side .social-links {
+  right: 1rem;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 10;
+}
+
+.contact-page section .left-side .social-links svg {
+  height: 2rem;
+  margin: 1rem .5rem;
+}
+
+.contact-page section .left-side .social-links svg:hover {
+  cursor: pointer;
+}
+
+.contact-page section .left-side .social-links .vertical-line {
+  width: 30px;
+  height: 2px;
+  background-color: #E5E5E5;
+}
+
 .contact-page section .right-side {
   margin-top: 1rem;
 }
@@ -340,7 +376,7 @@ textarea {
   transition: border 1s ease;
 }
 
-.contact-page section .right-side form .feild input:focus, .contact-page section .right-side form .feild textarea:focus {
+.contact-page section .right-side form .feild input:focus, .contact-page section .right-side form .feild input:hover, .contact-page section .right-side form .feild textarea:focus, .contact-page section .right-side form .feild textarea:hover {
   border: 1px solid #E5E5E5;
 }
 
@@ -420,6 +456,10 @@ input[type=checkbox] {
   font-weight: 700;
   opacity: 1;
   cursor: pointer;
+}
+
+.nav-links li:first-child {
+  margin-top: 3rem;
 }
 
 .nav-links li.active {
@@ -637,11 +677,15 @@ img {
 }
 
 .experience ul {
-  margin-top: 0.2rem;
+  margin-top: 0.5rem;
 }
 
 .experience li {
   margin-bottom: .4rem;
+}
+
+.experience li span {
+  margin-right: 5px;
 }
 
 /*waves****************************/
@@ -760,6 +804,7 @@ img {
   }
   .nav-links {
     width: 80%;
+    max-width: 600px;
     -ms-grid-column-align: center;
         justify-self: center;
     -ms-flex-pack: distribute;
@@ -776,6 +821,9 @@ img {
   .nav-links li {
     font-size: 1.2rem;
     margin: 0;
+  }
+  .nav-links li:first-child {
+    margin-top: 0;
   }
   .nav-link {
     font: 1rem;

@@ -6,6 +6,7 @@
     }
     .nav-links{
         width: 80%;
+        max-width: 600px;
         justify-self: center;
         justify-content: space-around;
         position: relative;
@@ -16,12 +17,17 @@
         li{
             font-size: 1.2rem ;
             margin: 0;
+
+            &:first-child{
+                margin-top: 0;
+              }
         }
         
     }
 
     .nav-link{
         font: 1rem;
+      
     }
 
     // -----------------------------home page ----------------------

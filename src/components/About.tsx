@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import { pageVariants, pageTransition } from "../App";
 import useDatabase from "../firebase/useDatabase";
 import Experience, { IExperience } from "../utils/Experience";
 import PageHeading from "../utils/PageHeading";
@@ -50,7 +52,14 @@ const About = () => {
 
 
     return (
-        <div className="about-page" id="about">
+        <motion.div
+            className="about-page" id="about"
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+        >
             <PageHeading heading="About" />
             <section>
                 <div className="profile-pic">
@@ -122,61 +131,13 @@ const About = () => {
                             }
                         </div>
 
-                        {/* <table>
-                            <thead>
-                                <tr>
 
-                                    <th className="text-primary">
-                                        Frontend
-                                </th>
-                        <th className="text-primary">
-                            Backend
-                                </th>
-                        <th className="text-primary">
-                            Tools used
-                                </th>
-                        <th className="text-primary">
-                            Other skills
-                                </th>
-                                </tr>
-                            </thead>
-                <tbody>
-                    <tr>
-                        <td>HTML, Css, JS</td>
-                        <td>Nodejs</td>
-                        <td>npm and yarn</td>
-                        <td>Mobile first design</td>
-                    </tr>
-                    <tr>
-                        <td>Typescript</td>
-                        <td>Graphql</td>
-                        <td>Git</td>
-                    </tr>
-                    <tr>
-                        <td>React.js</td>
-                        <td>Express js</td>
-                        <td>Postman</td>
-                    </tr>
-                    <tr>
-                        <td>Redux</td>
-                        <td>Mongo DB</td>
-                        <td>Figma</td>
-                    </tr>
-                    <tr>
-                        <td>Scss</td>
-                        <td>REST APIs</td>
-                    </tr>
-                    <tr>
-                        <td>React Bootstrap</td>
-                    </tr>
-                </tbody>
-                        </table> */}
 
                     </div>
 
                 </div >
             </section >
-        </div >
+        </motion.div >
 
     )
 }

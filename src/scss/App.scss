@@ -41,6 +41,11 @@ textarea{
     margin: 0 auto;
     background:$dark-color;
     color:$light-color;
+    overflow: hidden;
+}
+
+.home-page,.about-page,.contact-page,.project-page{
+    overflow: hidden;
 }
 
 // --------------------home-page-----------------------
@@ -275,6 +280,30 @@ textarea{
                margin-top: .7rem;
                opacity: .8;
            }
+
+           .social-links{
+           
+            right:1rem;
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            z-index: 10;
+            // justify-content: space-between;
+        
+            svg{
+                height: 2rem;
+                margin: 1rem .5rem;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            .vertical-line{
+                width: 30px;
+                height: 2px;
+                background-color: $light-color;
+            }
+        }
         }
         .right-side{
             margin-top:1rem;
@@ -296,7 +325,7 @@ textarea{
                         margin-top: 3px;
                         border-radius: 6px;
                         transition:border 1s ease;
-                        &:focus{
+                        &:focus,&:hover{
                             border: 1px solid $light-color;
                         }
                     }

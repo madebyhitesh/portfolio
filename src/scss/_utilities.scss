@@ -111,10 +111,13 @@ img{
         }
     }
     ul{
-        margin-top: 0.2rem;
+        margin-top: 0.5rem;
     }
 
     li{
         margin-bottom: .4rem;
+        span{
+            margin-right: 5px;
+        }
     }
 }
