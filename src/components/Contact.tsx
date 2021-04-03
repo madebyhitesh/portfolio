@@ -22,7 +22,8 @@ const Contact = () => {
                 <div className="right-side">
 
 
-                    <form netlify={true}>
+                    <form name="contact" method="post">
+                        <input type="hidden" name="form-name" value="contact" />
                         <div className="feild">
                             <label htmlFor="name">Your Name</label>
                             <input type="text" name="name" id="name" placeholder="Enter your name" required />

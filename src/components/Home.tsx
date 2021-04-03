@@ -1,4 +1,5 @@
 import { motion, Variants } from "framer-motion"
+import { Link } from "react-router-dom"
 import { pageTransition, pageVariants } from "../App"
 import { isMobile } from '../utils/constants'
 import SocailLinks from "../utils/SocailLinks"
@@ -121,8 +122,13 @@ const Home = () => {
                             }</p>
                     </div>
                     <div className="action-buttons">
-                        <button className="btn primary">Projects</button>
-                        <button className="btn outlined-primary">Resume</button>
+                        <Link to="/project">
+
+                            <button className="btn primary">Projects</button>
+                        </Link>
+
+                        <button className="btn outlined-primary" onClick={() => alert("Resume is not available right now. Will be adding soon. Thanks!!")}>Resume</button>
+
                     </div>
                 </section>
                 {!isMobile &&
