@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Waves from "./components/Waves";
+import useDatabase from "./firebase/useDatabase";
 
 export const pageVariants: Variants = {
   initial: { x: "-100vw", opacity: 0, scale: 1 },
@@ -24,15 +25,16 @@ export const pageTransition: TransitionDefinition = {
 const App = () => {
 
   const location = useLocation()
+  const { docs: resume } = useDatabase("resume")
 
 
   return (
 
     <div className="App">
-      <Navbar />
+      <Navbar resumeUrl={resume.length > 0 ? resume[0].resume : "/"} />
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
-          <Route component={Home} exact path="/" />
+          <Route exact path="/" ><Home resumeUrl={resume.length > 0 ? resume[0].resume : "/"} /></Route>
           <Route component={Projects} exact path="/project" />
           <Route component={About} exact path="/about" />
           <Route component={Contact} exact path="/contact" />

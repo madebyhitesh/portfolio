@@ -7,9 +7,11 @@ import About from "./About"
 import Contact from "./Contact"
 import Projects from "./Projects"
 
+interface Props {
+    resumeUrl: string
+}
 
-
-const Home = () => {
+const Home: React.FC<Props> = ({ resumeUrl }) => {
 
 
 
@@ -126,8 +128,9 @@ const Home = () => {
 
                             <button className="btn primary">Projects</button>
                         </Link>
-
-                        <button className="btn outlined-primary" onClick={() => alert("Resume is not available right now. Will be adding soon. Thanks!!")}>Resume</button>
+                        <a href={resumeUrl}>
+                            <button className="btn outlined-primary">Resume</button>
+                        </a>
 
                     </div>
                 </section>

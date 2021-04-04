@@ -8,6 +8,10 @@ interface INavLink {
     path: string
 }
 
+interface Props {
+    resumeUrl: string
+}
+
 const activeLink = (pathname: string, elementPath: string): string => {
     if (pathname === elementPath)
         return "navlink active"
@@ -46,7 +50,8 @@ const navLinks: INavLink[] = [
     },
 ]
 
-const Navbar = () => {
+const Navbar: React.FC<Props> = ({ resumeUrl }) => {
+
 
     const [ref, inView] = useInView()
     const [isMenuBtnClicked, setIsMenuBtnClicked] = useState(false)
@@ -85,7 +90,9 @@ const Navbar = () => {
                         <button className="btn outlined-primary">Projects</button>
                     </Link>
                 }
-                <button className="btn primary" onClick={() => alert("Resume is not available right now. Will be adding soon. Thanks!!")}>Resume</button>
+                <a href={resumeUrl}>
+                    <button className="btn primary">Resume</button>
+                </a>
             </div>
             {
                 isMobile &&

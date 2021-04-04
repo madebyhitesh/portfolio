@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import React from "react"
+
 import { pageTransition, pageVariants } from "../App"
 import PageHeading from "../utils/PageHeading"
 import SocailLinks from "../utils/SocailLinks"
