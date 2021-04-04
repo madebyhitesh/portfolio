@@ -1,9 +1,15 @@
 import { motion } from "framer-motion"
-import { pageVariants, pageTransition } from "../App"
+import React from "react"
+import { pageTransition, pageVariants } from "../App"
 import PageHeading from "../utils/PageHeading"
 import SocailLinks from "../utils/SocailLinks"
 
+
+
 const Contact = () => {
+
+
+
     return (
         <motion.div
             initial="initial"
@@ -22,7 +28,7 @@ const Contact = () => {
                 <div className="right-side">
 
 
-                    <form name="contact" method="post">
+                    <form name="contact" method="post" >
                         <input type="hidden" name="form-name" value="contact" />
                         <div className="feild">
                             <label htmlFor="name">Your Name</label>
@@ -30,7 +36,7 @@ const Contact = () => {
                         </div>
                         <div className="feild">
                             <label htmlFor="email">Email</label>
-                            <input type="text" name="email" id="email" placeholder="Enter your email" required />
+                            <input type="text" name="email" id="email" placeholder="Enter your email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
                         </div>
                         <div className="feild">
                             <label htmlFor="message">Message</label>
